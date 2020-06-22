@@ -32,7 +32,6 @@ LIB_NAME = $(addsuffix .san, $(LIBS))
 else
 LIB_NAME = $(LIBS)
 endif
-LIB_NAME += mlx
 3TH_NAME = libft
 SRC_NAME = \
 main.c vector_functs.c vector_functs2.c raytrace.c init.c \
@@ -70,7 +69,7 @@ endif
 	  "OBJ_PATH = $(OBJ_DIR)/san"
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(INC) $(LNK) $(OBJ) $(LIB) -o $(NAME) -framework AppKit -framework OpenGL
+	@$(CC) $(CFLAGS) $(INC) $(LNK) $(OBJ) $(LIB) -Imlx/ mlx/libmlx.a -o $(NAME) -framework AppKit -framework OpenGL
 	@printf  "%-20s\033[32m✔\033[0m\n" "$(NAME): exe"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
